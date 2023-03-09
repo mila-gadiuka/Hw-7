@@ -99,13 +99,22 @@ public class Main {
 
     public static void task7() {
         System.out.println("Седьмая задача");
-        Scanner in = new Scanner(System.in);
-        System.out.print("Введите номер пятницы на этой неделе от 1 до 7: ");
-        int friday = in.nextInt();
-        for (int day = friday; day <= 31; day += 7) {
-            if (friday >= 1 && friday < 8) {
-                System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
-            } else {
+        boolean flage = false;
+        while (!flage) {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Введите номер пятницы на этой неделе от 1 до 7: ");
+            try {
+                int friday = in.nextInt();
+                for (int day = friday; day <= 31; day += 7) {
+                    if (friday >= 1 && friday < 8) {
+                        System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
+                        flage = true;
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Ошибка");
+            }
+            if (!flage) {
                 System.out.println("Выберите число из приведенного вам списка вариантов ранее");
             }
         }
@@ -113,14 +122,25 @@ public class Main {
 
     public static void task8() {
         System.out.println("Восьмая задача");
-        Scanner in = new Scanner(System.in);
-        System.out.print("Введите текущий год: ");
-        int currentYear = in.nextInt();
-        int minusTwoHundredYearsFromOurTime = currentYear - 200;
-        int plusAHundredYearsToOurTime = currentYear + 100;
-        for (int year = 0; year < plusAHundredYearsToOurTime; year += 79) {
-            if (year > minusTwoHundredYearsFromOurTime) {
-                System.out.println(year);
+        boolean flage = false;
+        while (!flage) {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Введите текущий год: ");
+            try {
+                int currentYear = in.nextInt();
+                int minusTwoHundredYearsFromOurTime = currentYear - 200;
+                int plusAHundredYearsToOurTime = currentYear + 100;
+                for (int year = 0; year < plusAHundredYearsToOurTime; year += 79) {
+                    if (year > minusTwoHundredYearsFromOurTime) {
+                        System.out.println(year);
+                        flage = true;
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Ошибка");
+            }
+            if (!flage) {
+                System.out.println("Введите в цифровом виде число.");
             }
         }
     }
